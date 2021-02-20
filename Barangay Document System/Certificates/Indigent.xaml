@@ -1,0 +1,84 @@
+﻿<Window x:Class="Barangay_Document_System.Certificates.Indigent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Barangay_Document_System.Certificates"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="595" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <ScrollViewer>
+        <Grid>
+            <Grid>
+                <Button VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20" Click="Print_Button">
+                    <materialDesign:PackIcon Kind="Printer"/>
+                </Button>
+            </Grid>
+            <Grid x:Name="print">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="60">
+                    <Image Source="/Assets/BHeader.jpg" Height="160" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Run FontWeight="Bold" FontSize="15" Text="Certificate of Indigency"/>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="50 20">
+                    <TextBlock>
+                        <Run Text="TO WHOM IT MAY CONCERN: "/>
+                    </TextBlock>
+                    <TextBlock/>
+                    <TextBlock>
+                        <Run Text="         This is to certify that"/>
+                        <TextBox x:Name="v_name1" Width="165"></TextBox>
+                        <Run Text=","/>
+                        <TextBox Width="30"></TextBox>
+                        <Run Text="years of age, Filipino"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBox x:Name="v_civilstat" Width="50"></TextBox>
+                        <Run Text=" is a resident of Polong Norte, Malasiqui, Pangasinan."/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="         This FURTHER CERTIFIES that based on records of this barangay, "/>
+
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBox x:Name="v_name2" Width="130"></TextBox>
+                        <Run Text="has been residing at Polong Norte, Malasiqui, Pangasinan"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="         This certification is issued upon request of "/>
+                        <TextBox x:Name="v_name3" Width="170"></TextBox>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="for whatever legal purposes it may serve."/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="         Issued this"/>
+                        <TextBox x:Name="v_day" Width="30"></TextBox>
+                        <Run Text="day of"/>
+                        <TextBox x:Name="v_month" Width="70"></TextBox>
+                        <Run Text="at Brgy. Polong Norte,  Malasiqui, Pangasinan."/>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="350,50,50,50">
+                    <TextBlock>
+                        <Run Text="Certified by:"/>
+                    </TextBlock>
+                    <TextBlock/>
+                    <TextBlock/>
+                    <TextBlock>
+                        <Run Text="   "/>
+                        <TextBox Width="150"></TextBox>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="             Punong Barangay"/>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>

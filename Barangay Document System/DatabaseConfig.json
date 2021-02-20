@@ -1,0 +1,5 @@
+{
+  "user": "bds",
+  "pass": "bds",
+  "connstr": "server=localhost; port=5432; database=postgres;"
+}

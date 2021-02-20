@@ -1,0 +1,146 @@
+﻿<Window x:Class="Barangay_Document_System.DBManager.Insert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="Transparent"
+        Title="Insert" Height="450" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid Background="Aquamarine">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Margin="10" CornerRadius="10" BorderThickness="1" BorderBrush="Gray">
+                <Image Source="/Assets/Basic_Ui_(186).jpg" Stretch="Fill"/>
+            </Border>
+            <materialDesign:Chip x:Name="v_delete_btn"
+                Grid.Row="1"
+                Content="Delete Resident"
+                Click="Delete_Button"
+                Visibility="Hidden"
+                ToolTip="Close Window" Margin="19,218,0,20">
+                <materialDesign:Chip.Icon>
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </materialDesign:Chip.Icon>
+            </materialDesign:Chip>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBox x:Name="v_lastname"
+                         materialDesign:HintAssist.Hint="Last Name"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Margin="10"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <DatePicker x:Name="v_birthdate"
+  materialDesign:HintAssist.Hint="Birth Date"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="10" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBox x:Name="v_firstname"
+                         materialDesign:HintAssist.Hint="First Name"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Margin="10"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <ComboBox x:Name="v_civilstatus" Margin="10 25"
+  materialDesign:HintAssist.Hint="Civil Status">
+                        <ComboBoxItem Content="Single" />
+                        <ComboBoxItem Content="Married" />
+                        <ComboBoxItem Content="Widowed" />
+                        <ComboBoxItem Content="Divorced" />
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBox x:Name="v_middlename"
+                         materialDesign:HintAssist.Hint="Middle Name"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Margin="10"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <ComboBox x:Name="v_gender" Margin="10 25"
+  materialDesign:HintAssist.Hint="Gender">
+                        <ComboBoxItem Content="Male" />
+                        <ComboBoxItem Content="Female" />
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBox x:Name="v_birthplace"
+                         materialDesign:HintAssist.Hint="Birth Place"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Margin="10"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <ComboBox x:Name="v_voterstatus" Margin="10 25"
+  materialDesign:HintAssist.Hint="Voter Status">
+                        <ComboBoxItem Content="Yes" />
+                        <ComboBoxItem Content="No" />
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <materialDesign:Chip x:Name="ResidentButton"
+                Grid.Row="5"
+                Click="Save_Button" Margin="229,115,0,13">
+                <materialDesign:Chip.Icon>
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </materialDesign:Chip.Icon>
+            </materialDesign:Chip>
+            <materialDesign:Chip
+                Grid.Row="5"
+                Content="Close"
+                Click="Close_Button"
+                ToolTip="Close Window" Margin="405,115,0,13">
+                <materialDesign:Chip.Icon>
+                    <materialDesign:PackIcon Kind="Close"/>
+                </materialDesign:Chip.Icon>
+            </materialDesign:Chip>
+        </Grid>
+    </Grid>
+</Window>

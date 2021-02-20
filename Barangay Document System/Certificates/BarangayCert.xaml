@@ -1,0 +1,80 @@
+﻿<Window x:Class="Barangay_Document_System.Certificates.BarangayCert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Barangay_Document_System.Certificates"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="595" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <ScrollViewer>
+        <Grid>
+            <Grid>
+                <Button VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20" Click="Print_Button">
+                    <materialDesign:PackIcon Kind="Printer"/>
+                </Button>
+            </Grid>
+            <Grid x:Name="print">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="60">
+                    <Image Source="/Assets/BHeader.jpg" Height="160" />
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Run FontWeight="Bold" FontSize="15" Text="Barangay Clearance"/>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="50 20">
+                    <TextBlock>
+                        <Run Text="TO WHOM IT MAY CONCERN: "/>
+                    </TextBlock>
+                    <TextBlock/>
+                    <TextBlock>
+                        <Run Text="         This is to certify that"/>
+                        <TextBox x:Name="v_name1" Width="165"></TextBox>
+                        <Run Text=","/>
+                        <TextBox Width="30"></TextBox>
+                        <Run Text="years of age, Filipino"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <TextBox x:Name="v_civilstat" Width="50"></TextBox>
+                        <Run Text=" and a bonafide resident of Brgy. Polong Norte,  Malasiqui, Pangasinan,"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Philippines, is known to me personally to be of good moral  character and a  law-abiding"/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="citizen of this Barangay."/>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="         This certification is issued upon request of "/>
+                        <TextBox x:Name="v_name3" Width="170"></TextBox>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="for whatever legal purposes it may serve."/>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="50,50,350,50">
+                    <TextBlock>
+                        <TextBox Width="150"></TextBox>
+                    </TextBlock>
+                    <TextBlock FontWeight="SemiBold" FontSize="14" Text="               Signature"/>
+                    <TextBlock/>
+                    <TextBlock>
+                        <Run Text="CTC No."/>
+                        <TextBox Width="150"></TextBox>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Issued at"/>
+                        <TextBox Width="150" Text="Malasiqui, Pangasinan"></TextBox>
+                    </TextBlock>
+                    <TextBlock>
+                        <Run Text="Issued on"/>
+                        <TextBox Width="150"></TextBox>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>

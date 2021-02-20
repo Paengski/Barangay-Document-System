@@ -1,0 +1,86 @@
+﻿<Window x:Class="Barangay_Document_System.Pages.LoginPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Title="Login" 
+        Height="500" 
+        Width="850" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <Rectangle Fill="WhiteSmoke" RadiusY="25" RadiusX="25" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="500"/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="25 70">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                           Margin="20"
+                           FontSize="25">
+                    <Run Text="Welcome,"/>
+                    <Run Text="Admin!" Foreground="RoyalBlue" FontWeight="SemiBold"/>
+                </TextBlock>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="270"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="v_username" Grid.Column="1"
+                         materialDesign:HintAssist.Hint="Username"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center"/>
+                    <materialDesign:PackIcon 
+                                         Kind="AccountBox" 
+                                         HorizontalAlignment="Left" 
+                                         VerticalAlignment="Center"
+                                         Margin="5,32,0,12"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="270"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon Kind="Key" HorizontalAlignment="Left" 
+                                         VerticalAlignment="Center"
+                                         Margin="5,38,0,6"/>
+                    <PasswordBox Grid.Column="1"
+                                 x:Name="v_passwordbox"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 materialDesign:HintAssist.Foreground="Green"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" KeyDown="V_passwordbox_KeyDown" Margin="0,11,0,0" />
+                </Grid>
+                <Button Grid.Row="3"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        ToolTip="Admin Login"
+                        Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LoginButton" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <Image Source="/Assets/20944201.jpg" HorizontalAlignment="Right" VerticalAlignment="Center" Stretch="Fill"/>
+                <Button Content="{materialDesign:PackIcon Kind=Close}" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Right"
+                        Background="{x:Null}" BorderBrush="{x:Null}"
+                        Foreground="Black"
+                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                        ToolTip="Close"
+                        Click="CloseButton"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
