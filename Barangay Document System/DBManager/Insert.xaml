@@ -18,7 +18,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border Margin="10" CornerRadius="10" BorderThickness="1" BorderBrush="Gray">
-                <Image Source="/Assets/Basic_Ui_(186).jpg" Stretch="Fill"/>
+                <Image x:Name="v_profilepic" Source="/Assets/Basic_Ui_(186).jpg" Stretch="Fill"/>
             </Border>
             <materialDesign:Chip x:Name="v_delete_btn"
                 Grid.Row="1"
@@ -30,10 +30,14 @@
                     <materialDesign:PackIcon Kind="Delete"/>
                 </materialDesign:Chip.Icon>
             </materialDesign:Chip>
+            <Grid Grid.Row="1">
+                <Button Content="Upload Photo" Click="Button_Click" VerticalAlignment="Top" Width="110" FontSize="12"/>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
@@ -118,25 +122,36 @@
                              Margin="10"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <ComboBox x:Name="v_voterstatus" Margin="10 25"
-  materialDesign:HintAssist.Hint="Voter Status">
-                        <ComboBoxItem Content="Yes" />
-                        <ComboBoxItem Content="No" />
-                    </ComboBox>
+                    <TextBox x:Name="v_homeaddress"
+                         materialDesign:HintAssist.Hint="Home Address"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Margin="10"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="5">
+                <StackPanel>
+                    <TextBox x:Name="v_mobilenumber" HorizontalAlignment="Center"
+                         materialDesign:HintAssist.Hint="Mobile Number"
+                         materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             Width="185" TextChanged="V_mobilenumber_TextChanged"/>
                 </StackPanel>
             </Grid>
             <materialDesign:Chip x:Name="ResidentButton"
-                Grid.Row="5"
-                Click="Save_Button" Margin="229,115,0,13">
+                Grid.Row="6"
+                Click="Save_Button" Margin="232,56,0,12">
                 <materialDesign:Chip.Icon>
                     <materialDesign:PackIcon Kind="ContentSave"/>
                 </materialDesign:Chip.Icon>
             </materialDesign:Chip>
             <materialDesign:Chip
-                Grid.Row="5"
+                Grid.Row="6"
                 Content="Close"
                 Click="Close_Button"
-                ToolTip="Close Window" Margin="405,115,0,13">
+                ToolTip="Close Window" Margin="404,56,0,12">
                 <materialDesign:Chip.Icon>
                     <materialDesign:PackIcon Kind="Close"/>
                 </materialDesign:Chip.Icon>

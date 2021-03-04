@@ -1,10 +1,12 @@
 ﻿using Barangay_Document_System.Certificates;
 using Barangay_Document_System.DBManager;
 using System;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Barangay_Document_System.Pages
 {
@@ -70,7 +72,19 @@ namespace Barangay_Document_System.Pages
          insert.v_birthdate.Text = rowSelected.BirthDate.ToString();
          insert.v_birthplace.Text = rowSelected.BirthPlace;
          insert.v_civilstatus.Text = rowSelected.CivilStatus;
-         insert.v_voterstatus.Text = rowSelected.VoterStatus;
+         insert.v_homeaddress.Text = rowSelected.HouseAddress;
+         insert.v_mobilenumber.Text = rowSelected.MobileNumber;
+
+         if (!string.IsNullOrEmpty(rowSelected.Image))
+         {
+            Stream StreamObj = new MemoryStream(DBOperation.ToHexBytes(rowSelected.Image));
+            BitmapImage BitObj = new BitmapImage();
+            BitObj.BeginInit();
+            BitObj.StreamSource = StreamObj;
+            BitObj.EndInit();
+            insert.v_profilepic.Source = BitObj;
+         }
+
          insert.ResidentButton.Content = "Update Information";
          insert.ResidentButton.ToolTip = "Update Resident Information";
          Insert.ResidentId = (Guid)rowSelected.ResidentId;

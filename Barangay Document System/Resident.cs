@@ -15,7 +15,9 @@ namespace Barangay_Document_System
       public DateTime? BirthDate { get; set; }
       public string BirthPlace { get; set; }
       public string CivilStatus { get; set; }
-      public string VoterStatus { get; set; }
+      public string HouseAddress { get; set; }
+      public string MobileNumber { get; set; }
+      public string Image { get; set; }
 
       private static readonly Dictionary<Guid, Resident> _resident = new Dictionary<Guid, Resident>();
       public static List<Resident> ResidentCollection
@@ -24,7 +26,7 @@ namespace Barangay_Document_System
          {
             if (_resident == null || _resident.Count == 0)
             {
-               string selectInfo = "SELECT id,firstname,middlename,lastname,gender,birthdate,birthplace,civilstatus,voterstatus " +
+               string selectInfo = "SELECT id,firstname,middlename,lastname,gender,birthdate,birthplace,civilstatus,houseaddress,mobilenumber,image " +
                   "FROM bds.residentinfo";
 
                var dt = DBOperation.ExecuteToDataTable(selectInfo);
@@ -42,7 +44,9 @@ namespace Barangay_Document_System
                         BirthDate = (DateTime)dr["birthdate"],
                         BirthPlace = dr["birthplace"] as string,
                         CivilStatus = dr["civilstatus"] as string,
-                        VoterStatus = dr["voterstatus"] as string,
+                        HouseAddress = dr["houseaddress"] as string,
+                        MobileNumber = dr["mobilenumber"] as string,
+                        Image = dr["image"] as string
                      };
                      _resident[(Guid)resident.ResidentId] = resident;
                   }

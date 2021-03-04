@@ -31,7 +31,7 @@
                            Margin="20"
                            FontSize="25">
                     <Run Text="Welcome,"/>
-                    <Run Text="Admin!" Foreground="RoyalBlue" FontWeight="SemiBold"/>
+                    <Run Text="User!" Foreground="RoyalBlue" FontWeight="SemiBold"/>
                 </TextBlock>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
@@ -71,7 +71,7 @@
                         Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Center" Click="LoginButton" />
             </Grid>
             <Grid Grid.Column="1">
-                <Image Source="/Assets/20944201.jpg" HorizontalAlignment="Right" VerticalAlignment="Center" Stretch="Fill"/>
+                <Image Source="/Assets/Logo.jpg" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70" Opacity="0.75"/>
                 <Button Content="{materialDesign:PackIcon Kind=Close}" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="Right"

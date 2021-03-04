@@ -197,7 +197,8 @@
                             <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate}"/>
                             <DataGridTextColumn Header="Birth Place" Binding="{Binding BirthPlace}"/>
                             <DataGridTextColumn Header="Civil Status" Binding="{Binding CivilStatus}"/>
-                            <DataGridTextColumn Header="Voter" Binding="{Binding VoterStatus}"/>
+                            <DataGridTextColumn Header="Address" Binding="{Binding HouseAddress}"/>
+                            <DataGridTextColumn Header="Mobile" Binding="{Binding MobileNumber}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
