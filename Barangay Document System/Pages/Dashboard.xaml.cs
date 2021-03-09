@@ -1,11 +1,14 @@
 ﻿using Barangay_Document_System.Certificates;
 using Barangay_Document_System.DBManager;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Barangay_Document_System.Pages
@@ -109,6 +112,7 @@ namespace Barangay_Document_System.Pages
          residency.v_civilstat.Text = rowSelected.CivilStatus;
          residency.v_day.Text = DateTime.Now.Day.ToString();
          residency.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         residency.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
          residency.Show();
       }
 
@@ -119,6 +123,7 @@ namespace Barangay_Document_System.Pages
          cert.v_civilstat.Text = rowSelected.CivilStatus;
          cert.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
          cert.v_name3.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         cert.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
          cert.Show();
       }
 
@@ -132,6 +137,7 @@ namespace Barangay_Document_System.Pages
          indgcy.v_civilstat.Text = rowSelected.CivilStatus;
          indgcy.v_day.Text = DateTime.Now.Day.ToString();
          indgcy.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         indgcy.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
          indgcy.Show();
       }
 
@@ -139,8 +145,95 @@ namespace Barangay_Document_System.Pages
       {
          if(e.Key == Key.Enter)
          {
-            string search = v_search.Text;
-            v_data_grid.ItemsSource = Resident.ResidentCollection.Where(x => x.LastName.Contains(search)).ToList();
+            var search = v_search.Text.Split(' ');
+            if(search.Length > 1)
+            {
+               v_data_grid.ItemsSource = Resident.ResidentCollection.Where(x => x.LastName.Contains(search.FirstOrDefault())
+            && x.FirstName.Contains(search.LastOrDefault())).ToList();
+            }
+            else
+            {
+               v_data_grid.ItemsSource = Resident.ResidentCollection.Where(x => x.LastName.Contains(search.FirstOrDefault())).ToList();
+            }
+         }
+      }
+
+      private void Farmer_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         FarmerCert farmer = new FarmerCert();
+         farmer.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         farmer.v_name2.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         farmer.v_civilstat.Text = rowSelected.CivilStatus;
+         farmer.v_day.Text = DateTime.Now.Day.ToString();
+         farmer.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         farmer.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
+         farmer.Show();
+      }
+
+      private void LiveIn_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         LiveIn li = new LiveIn();
+         li.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         li.v_name2.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         li.v_day.Text = DateTime.Now.Day.ToString();
+         li.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         li.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
+         li.Show();
+      }
+
+      private void GoodMoral_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         GoodMoral gm = new GoodMoral();
+         gm.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         gm.v_name2.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         gm.v_name3.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         gm.v_age.Text = ComputeAge((DateTime)rowSelected.BirthDate).ToString();
+         gm.Show();
+      }
+
+      private int ComputeAge(DateTime birthdate)
+      {
+         return DateTime.Now.Year - birthdate.Year;
+      }
+
+      private DataGridColumnHeader GetColumnHeaderFromColumn(DataGridColumn column)
+      {
+         // dataGrid is the name of your DataGrid. In this case Name="dataGrid"
+         List<DataGridColumnHeader> columnHeaders = GetVisualChildCollection<DataGridColumnHeader>(v_data_grid);
+         foreach (DataGridColumnHeader columnHeader in columnHeaders)
+         {
+            if (columnHeader.Column == column)
+            {
+               return columnHeader;
+            }
+         }
+         return null;
+      }
+
+      public List<T> GetVisualChildCollection<T>(object parent) where T : Visual
+      {
+         List<T> visualCollection = new List<T>();
+         GetVisualChildCollection(parent as DependencyObject, visualCollection);
+         return visualCollection;
+      }
+
+      private void GetVisualChildCollection<T>(DependencyObject parent, List<T> visualCollection) where T : Visual
+      {
+         int count = VisualTreeHelper.GetChildrenCount(parent);
+         for (int i = 0; i < count; i++)
+         {
+            DependencyObject child = VisualTreeHelper.GetChild(parent, i);
+            if (child is T)
+            {
+               visualCollection.Add(child as T);
+            }
+            else if (child != null)
+            {
+               GetVisualChildCollection(child, visualCollection);
+            }
          }
       }
    }

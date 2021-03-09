@@ -32,13 +32,13 @@
                     <TextBlock/>
                     <TextBlock>
                         <Run Text="         This is to certify that"/>
-                        <TextBox x:Name="v_name1" Width="165"></TextBox>
+                        <TextBox x:Name="v_name1" Width="165" IsReadOnly="True"></TextBox>
                         <Run Text=","/>
-                        <TextBox Width="30"></TextBox>
+                        <TextBox x:Name="v_age" Width="30" IsReadOnly="True"></TextBox>
                         <Run Text="years of age, Filipino"/>
                     </TextBlock>
                     <TextBlock>
-                        <TextBox x:Name="v_civilstat" Width="50"></TextBox>
+                        <TextBox x:Name="v_civilstat" Width="50" IsReadOnly="True"></TextBox>
                         <Run Text=" is a resident of Polong Norte, Malasiqui, Pangasinan."/>
                     </TextBlock>
                     <TextBlock>
@@ -46,21 +46,21 @@
                         
                     </TextBlock>
                     <TextBlock>
-                        <TextBox x:Name="v_name2" Width="130"></TextBox>
+                        <TextBox x:Name="v_name2" Width="130" IsReadOnly="True"></TextBox>
                         <Run Text="has been residing at Polong Norte, Malasiqui, Pangasinan"/>
                     </TextBlock>
                     <TextBlock>
                         <Run Text="         This certification is issued upon request of "/>
-                        <TextBox x:Name="v_name3" Width="170"></TextBox>
+                        <TextBox x:Name="v_name3" Width="170" IsReadOnly="True"></TextBox>
                     </TextBlock>
                     <TextBlock>
                         <Run Text="for whatever legal purposes it may serve."/>
                     </TextBlock>
                     <TextBlock>
                         <Run Text="         Issued this"/>
-                        <TextBox x:Name="v_day" Width="30"></TextBox>
+                        <TextBox x:Name="v_day" Width="30" IsReadOnly="True"></TextBox>
                         <Run Text="day of"/>
-                        <TextBox x:Name="v_month" Width="70"></TextBox>
+                        <TextBox x:Name="v_month" Width="70" IsReadOnly="True"></TextBox>
                         <Run Text="at Brgy. Polong Norte,  Malasiqui, Pangasinan."/>
                     </TextBlock>
                 </StackPanel>

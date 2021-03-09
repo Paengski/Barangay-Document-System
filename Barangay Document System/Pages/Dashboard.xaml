@@ -147,8 +147,6 @@
                               IsReadOnly="True"
                               CanUserDeleteRows="False"
                               CanUserSortColumns="True"
-                              SelectionMode="Single"
-                              SelectionUnit="FullRow"
                               IsTextSearchEnabled="True"
                               IsTextSearchCaseSensitive="False">
                         <DataGrid.CellStyle>
@@ -184,6 +182,9 @@
                                                             Content="CR" Click="Residency_Button" />
                                                     <Button ToolTip="Barangay Clearance" Content="BC" Click="BarangayClearance_Button" />
                                                     <Button ToolTip="Certificate of Indigency" Content="CI" Click="Indigency_Button" />
+                                                    <Button ToolTip="Farmer's Certification" Content="FC" Click="Farmer_Button" />
+                                                    <Button ToolTip="Live In Certification" Content="LI" Click="LiveIn_Button" />
+                                                    <Button ToolTip="Good Moral" Content="GM" Click="GoodMoral_Button" />
                                                 </StackPanel>
                                             </materialDesign:PopupBox>
                                         </StackPanel>

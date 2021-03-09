@@ -135,8 +135,17 @@
     <Compile Include="Certificates\BarangayCert.xaml.cs">
       <DependentUpon>BarangayCert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Certificates\FarmerCert.xaml.cs">
+      <DependentUpon>FarmerCert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\GoodMoral.xaml.cs">
+      <DependentUpon>GoodMoral.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Certificates\Indigent.xaml.cs">
       <DependentUpon>Indigent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\LiveIn.xaml.cs">
+      <DependentUpon>LiveIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Certificates\Residency.xaml.cs">
       <DependentUpon>Residency.xaml</DependentUpon>
@@ -152,7 +161,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Certificates\FarmerCert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Certificates\GoodMoral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Certificates\Indigent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Certificates\LiveIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

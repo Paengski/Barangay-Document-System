@@ -33,7 +33,7 @@ namespace Barangay_Document_System.Certificates
             PrintDialog printDlg = new PrintDialog();
             if (printDlg.ShowDialog() == true)
             {
-               printDlg.PrintVisual(print, "Residency");
+               printDlg.PrintVisual(print, "Indigent");
             }
          }
          finally

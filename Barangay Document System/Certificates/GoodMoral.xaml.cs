@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Barangay_Document_System.Certificates
 {
    /// <summary>
-   /// Interaction logic for BarangayCert.xaml
+   /// Interaction logic for GoodMoral.xaml
    /// </summary>
-   public partial class BarangayCert : Window
+   public partial class GoodMoral : Window
    {
-      public BarangayCert()
+      public GoodMoral()
       {
          InitializeComponent();
       }
@@ -33,7 +33,7 @@ namespace Barangay_Document_System.Certificates
             PrintDialog printDlg = new PrintDialog();
             if (printDlg.ShowDialog() == true)
             {
-               printDlg.PrintVisual(print, "Barangay Certificate");
+               printDlg.PrintVisual(print, "Good Moral");
             }
          }
          finally
