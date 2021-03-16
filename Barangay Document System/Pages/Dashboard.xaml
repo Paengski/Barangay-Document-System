@@ -185,6 +185,10 @@
                                                     <Button ToolTip="Farmer's Certification" Content="FC" Click="Farmer_Button" />
                                                     <Button ToolTip="Live In Certification" Content="LI" Click="LiveIn_Button" />
                                                     <Button ToolTip="Good Moral" Content="GM" Click="GoodMoral_Button" />
+                                                    <Button ToolTip="Certification" Content="C" Click="Cert_Button" />
+                                                    <Button ToolTip="Cutting Trees" Content="CT" Click="CuttingTrees_Button" />
+                                                    <Button ToolTip="Job Seeker" Content="JS" Click="JobSeeker_Button" />
+                                                    <Button ToolTip="Pigs" Content="P" Click="Pigs_Button" />
                                                 </StackPanel>
                                             </materialDesign:PopupBox>
                                         </StackPanel>

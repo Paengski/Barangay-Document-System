@@ -135,6 +135,12 @@
     <Compile Include="Certificates\BarangayCert.xaml.cs">
       <DependentUpon>BarangayCert.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Certificates\Certification.xaml.cs">
+      <DependentUpon>Certification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\CuttingTrees.xaml.cs">
+      <DependentUpon>CuttingTrees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Certificates\FarmerCert.xaml.cs">
       <DependentUpon>FarmerCert.xaml</DependentUpon>
     </Compile>
@@ -144,8 +150,14 @@
     <Compile Include="Certificates\Indigent.xaml.cs">
       <DependentUpon>Indigent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Certificates\JobSeekers.xaml.cs">
+      <DependentUpon>JobSeekers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Certificates\LiveIn.xaml.cs">
       <DependentUpon>LiveIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates\Pigs.xaml.cs">
+      <DependentUpon>Pigs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Certificates\Residency.xaml.cs">
       <DependentUpon>Residency.xaml</DependentUpon>
@@ -161,6 +173,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Certificates\Certification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Certificates\CuttingTrees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Certificates\FarmerCert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,7 +193,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Certificates\JobSeekers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Certificates\LiveIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Certificates\Pigs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

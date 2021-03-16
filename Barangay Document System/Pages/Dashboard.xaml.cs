@@ -236,5 +236,44 @@ namespace Barangay_Document_System.Pages
             }
          }
       }
+
+      private void Cert_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         Certification c = new Certification();
+         c.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         c.v_day.Text = DateTime.Now.Day.ToString();
+         c.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         c.Show();
+      }
+
+      private void CuttingTrees_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         CuttingTrees ct = new CuttingTrees();
+         ct.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         ct.v_day.Text = DateTime.Now.Day.ToString();
+         ct.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         ct.Show();
+      }
+
+      private void JobSeeker_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         JobSeekers js = new JobSeekers();
+         js.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         js.v_day.Text = DateTime.Now.Day.ToString();
+         js.v_month.Text = $"{DateTime.Now.Month} {DateTime.Now.Year}";
+         js.Show();
+      }
+
+      private void Pigs_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_data_grid.SelectedCells[0].Item as Resident;
+         Pigs li = new Pigs();
+         li.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         li.v_name2.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
+         li.Show();
+      }
    }
 }

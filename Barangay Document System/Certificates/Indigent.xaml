@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Barangay_Document_System.Certificates"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="595" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+        mc:Ignorable="d" Height="600" Width="595" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <ScrollViewer>
         <Grid>
             <Grid>
