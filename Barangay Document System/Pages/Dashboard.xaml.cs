@@ -39,20 +39,20 @@ namespace Barangay_Document_System.Pages
       private void Dashboard_Button(object sender, RoutedEventArgs e)
       {
          v_dboard_grid.Visibility = Visibility.Visible;
-         v_resident_info_grid.Visibility = Visibility.Hidden;
-         v_certificate_issuance_grid.Visibility = Visibility.Hidden;
-         v_accounts_grid.Visibility = Visibility.Hidden;
-         v_barangay_config_grid.Visibility = Visibility.Hidden;
+         v_resident_info_grid.Visibility = Visibility.Collapsed;
+         v_resident_log_grid.Visibility = Visibility.Collapsed;
+         v_accounts_grid.Visibility = Visibility.Collapsed;
+         v_barangay_config_grid.Visibility = Visibility.Collapsed;
          TotalResident();
       }
 
       public void Resident_Info_Button(object sender, RoutedEventArgs e)
       {
          v_resident_info_grid.Visibility = Visibility.Visible;
-         v_dboard_grid.Visibility = Visibility.Hidden;
-         v_certificate_issuance_grid.Visibility = Visibility.Hidden;
-         v_accounts_grid.Visibility = Visibility.Hidden;
-         v_barangay_config_grid.Visibility = Visibility.Hidden;
+         v_dboard_grid.Visibility = Visibility.Collapsed;
+         v_resident_log_grid.Visibility = Visibility.Collapsed;
+         v_accounts_grid.Visibility = Visibility.Collapsed;
+         v_barangay_config_grid.Visibility = Visibility.Collapsed;
          v_data_grid.ItemsSource = Resident.ResidentCollection;
       }
 
@@ -274,6 +274,50 @@ namespace Barangay_Document_System.Pages
          li.v_name1.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
          li.v_name2.Text = $"{rowSelected.FirstName} {rowSelected.MiddleName} {rowSelected.LastName}";
          li.Show();
+      }
+
+      private void ResidentLog_Button(object sender, RoutedEventArgs e)
+      {
+         v_resident_info_grid.Visibility = Visibility.Collapsed;
+         v_dboard_grid.Visibility = Visibility.Collapsed;
+         v_resident_log_grid.Visibility = Visibility.Visible;
+         v_accounts_grid.Visibility = Visibility.Collapsed;
+         v_barangay_config_grid.Visibility = Visibility.Collapsed;
+         v_resident_log_data_grid.ItemsSource = ResidentLog.ResidentLogCollection;
+      }
+
+      private void DeleteResLog_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_resident_log_data_grid.SelectedCells[0].Item as ResidentLog;
+         string deleteQry = $"DELETE FROM bds.residentlog WHERE id = '{rowSelected.ID}'";
+         var count = DBOperation.ExecuteNonQuery(deleteQry);
+         if (count > 0)
+         {
+            ResidentLog.DeleteRecord(rowSelected.ID);
+            MessageBox.Show("Deleted", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+         }
+      }
+
+      private void DeleteAccount_Button(object sender, RoutedEventArgs e)
+      {
+         var rowSelected = v_config_data_grid.SelectedCells[0].Item as AdminAccount;
+         string deleteQry = $"DELETE FROM app_user WHERE id = '{rowSelected.ID}'";
+         var count = DBOperation.ExecuteNonQuery(deleteQry);
+         if (count > 0)
+         {
+            AdminAccount.DeleteRecord(rowSelected.ID);
+            MessageBox.Show("Deleted", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+         }
+      }
+
+      private void Configuration_Button(object sender, RoutedEventArgs e)
+      {
+         v_resident_info_grid.Visibility = Visibility.Collapsed;
+         v_dboard_grid.Visibility = Visibility.Collapsed;
+         v_resident_log_grid.Visibility = Visibility.Collapsed;
+         v_accounts_grid.Visibility = Visibility.Collapsed;
+         v_barangay_config_grid.Visibility = Visibility.Visible;
+         v_config_data_grid.ItemsSource = AdminAccount.AdminAccounts;
       }
    }
 }

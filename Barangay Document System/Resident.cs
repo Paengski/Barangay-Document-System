@@ -72,4 +72,87 @@ namespace Barangay_Document_System
          _resident.Remove(id);
       }
    }
+
+   public class ResidentLog
+   {
+      public int ID { get; set; }
+      public string Fullname { get; set; }
+      public string CertificateType { get; set; }
+      public DateTime? DateIssued { get; set; }
+
+      private static readonly Dictionary<int, ResidentLog> _residentlog = new Dictionary<int, ResidentLog>();
+      public static List<ResidentLog> ResidentLogCollection
+      {
+         get
+         {
+            if (_residentlog == null || _residentlog.Count == 0)
+            {
+               string selectInfo = "SELECT id,fullname,certtype,dateissued FROM bds.residentlog";
+               var dt = DBOperation.ExecuteToDataTable(selectInfo);
+               if (dt != null)
+               {
+                  foreach (DataRow dr in dt.Rows)
+                  {
+                     ResidentLog resident = new ResidentLog
+                     {
+                        ID = (int)dr["id"],
+                        Fullname = dr["fullname"] as string,
+                        CertificateType = dr["certtype"] as string,
+                        DateIssued = (DateTime)dr["dateissued"],
+                     };
+                     _residentlog[(int)dr["id"]] = resident;
+                  }
+               }
+               return _residentlog.Select(x => x.Value).ToList();
+            }
+            return _residentlog.Select(x => x.Value).ToList();
+         }
+      }
+
+      public static void DeleteRecord(int id)
+      {
+         _residentlog.Remove(id);
+      }
+   }
+   public class AdminAccount
+   {
+      public int ID { get; set; }
+      public string Username { get; set; }
+      public string Password { get; set; }
+      public string Hint { get; set; }
+
+      private static readonly Dictionary<int, AdminAccount> _adminAcc = new Dictionary<int, AdminAccount>();
+      public static List<AdminAccount> AdminAccounts
+      {
+         get
+         {
+            if (_adminAcc == null || _adminAcc.Count == 0)
+            {
+               string selectInfo = "SELECT * FROM app_user";
+               var dt = DBOperation.ExecuteToDataTable(selectInfo);
+               if (dt != null)
+               {
+                  foreach (DataRow dr in dt.Rows)
+                  {
+                     AdminAccount resident = new AdminAccount
+                     {
+                        ID = (int)dr["id"],
+                        Username = dr["username"] as string,
+                        Password = dr["userpassword"] as string,
+                        Hint = dr["hint"] as string,
+                     };
+                     _adminAcc[(int)dr["id"]] = resident;
+                  }
+               }
+               return _adminAcc.Select(x => x.Value).ToList();
+            }
+            return _adminAcc.Select(x => x.Value).ToList();
+         }
+      }
+
+      public static void DeleteRecord(int id)
+      {
+         _adminAcc.Remove(id);
+      }
+   }
 }

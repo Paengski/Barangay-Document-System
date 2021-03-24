@@ -59,12 +59,12 @@
                     <materialDesign:Badged Grid.Row="2" HorizontalAlignment="Center"
                                            Badge="{materialDesign:PackIcon Kind=AccountDetails}"
                                            BadgeColorZoneMode="Dark">
-                        <Button Content="Barangay Officials" Height="50" Width="180" />
+                        <Button Content="Resident Log" Height="50" Width="180" Click="ResidentLog_Button" />
                     </materialDesign:Badged>
                     <materialDesign:Badged Grid.Row="3" HorizontalAlignment="Center"
                                            Badge="{materialDesign:PackIcon Kind=Gear}"
                                            BadgeColorZoneMode="Dark">
-                        <Button Content="Configuration" Height="50" Width="180" />
+                        <Button Content="Configuration" Height="50" Width="180" Click="Configuration_Button" />
                     </materialDesign:Badged>
                     <Button Grid.Row="5" Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
                             ToolTip="Log out" Click="LogoutButton" Margin="72,36,72,-21">
@@ -208,14 +208,130 @@
                     </DataGrid>
                 </Grid>
             </Grid>
-            <Grid x:Name="v_certificate_issuance_grid" Grid.Column="1" Visibility="Hidden">
+            <Grid x:Name="v_resident_log_grid" Grid.Column="1" Visibility="Hidden">
                 <Rectangle Margin="2" RadiusY="10" RadiusX="10" Fill="LightGray"/>
+                <Grid Margin="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <materialDesign:PackIcon 
+                                         Kind="Search"
+                                Margin="5"
+                                VerticalAlignment="Center"/>
+                            <TextBox x:Name="v_search2" Width="150" Margin="5"
+  materialDesign:HintAssist.Hint="Search"
+                                     materialDesign:HintAssist.Foreground="Green"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" KeyDown="Search"/>
+                        </StackPanel>
+                    </Grid>
+                    <DataGrid x:Name="v_resident_log_data_grid"
+                              Grid.Row="1"
+                              x:FieldModifier="public"
+                              AutoGenerateColumns="False"
+                              ColumnWidth="*"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              CanUserDeleteRows="False"
+                              CanUserSortColumns="True"
+                              IsTextSearchEnabled="True"
+                              IsTextSearchCaseSensitive="False">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Action"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="v_delete_btn" 
+                                                    Content="{materialDesign:PackIcon Kind=Delete}"
+                                                    Width="46" Click="DeleteResLog_Button"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Full Name" Binding="{Binding Fullname}"/>
+                            <DataGridTextColumn Header="Certificate Type" Binding="{Binding CertificateType}"/>
+                            <DataGridTextColumn Header="Date Issued" Binding="{Binding DateIssued}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </Grid>
             <Grid x:Name="v_accounts_grid" Grid.Column="1" Visibility="Hidden">
                 <Rectangle Margin="2" RadiusY="10" RadiusX="10" Fill="LightGray"/>
             </Grid>
             <Grid x:Name="v_barangay_config_grid" Grid.Column="1" Visibility="Hidden">
                 <Rectangle Margin="2" RadiusY="10" RadiusX="10" Fill="LightGray"/>
+                <Grid Margin="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    <DataGrid x:Name="v_config_data_grid"
+                              Grid.Row="1"
+                              x:FieldModifier="public"
+                              AutoGenerateColumns="False"
+                              ColumnWidth="*"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              CanUserDeleteRows="False"
+                              CanUserSortColumns="True"
+                              IsTextSearchEnabled="True"
+                              IsTextSearchCaseSensitive="False">
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Action"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="v_delete_btn" 
+                                                    Content="{materialDesign:PackIcon Kind=Delete}"
+                                                    Width="46" Click="DeleteAccount_Button"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="User ID" Binding="{Binding ID}"/>
+                            <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                            <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                            <DataGridTextColumn Header="Hint" Binding="{Binding Hint}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

@@ -29,16 +29,16 @@ namespace Barangay_Document_System
          string workingDirectory = Environment.CurrentDirectory;
          string projectDirectory = System.IO.Path.Combine(Directory.GetParent(workingDirectory).Parent.FullName, "DatabaseConfig.json");
 
-         if (!File.Exists(projectDirectory))
-         {
-            MessageBox.Show("Missing Database configuration", "", MessageBoxButton.OK, MessageBoxImage.Warning);
-            throw new Exception();
-         }
+         //if (!File.Exists(projectDirectory))
+         //{
+         //   MessageBox.Show("Missing Database configuration", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+         //   throw new Exception();
+         //}
 
-         var info = JsonConvert.DeserializeObject<DbInfo>(File.ReadAllText(projectDirectory));
+         //var info = JsonConvert.DeserializeObject<DbInfo>(File.ReadAllText(projectDirectory));
          try
          {
-            DBOperation.Connect(info.User, info.Pass, info.ConnStr);
+            DBOperation.Connect("bds", "bds", "server=localhost; port=5432; database=postgres;");
          }
          catch (Exception)
          {

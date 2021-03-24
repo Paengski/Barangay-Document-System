@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,11 +31,13 @@ namespace Barangay_Document_System.Certificates
          {
             IsEnabled = false;
             Visibility = Visibility.Hidden;
-            PrintDialog printDlg = new PrintDialog();
-            if (printDlg.ShowDialog() == true)
+            PrintDialog pd = new PrintDialog
             {
-               printDlg.PrintVisual(print, "Live In");
-            }
+               PrintQueue = new PrintQueue(new PrintServer(), "Microsoft Print to PDF")
+            };
+            pd.PrintVisual(print, "Live In");
+            string query = $"INSERT INTO BDS.RESIDENTLOG (fullname,certtype,dateissued) VALUES ('{v_name1.Text}','Live In','{DateTime.Now}')";
+            _ = DBOperation.ExecuteNonQuery(query);
          }
          finally
          {

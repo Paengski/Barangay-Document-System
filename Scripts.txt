@@ -1,0 +1,8 @@
+create table bds.residentlog(
+	id serial,
+	Fullname varchar,
+	certtype varchar,
+	dateissued timestamp without time zone
+);
+
+ALTER TABLE app_user ADD CONSTRAINT constraint_name UNIQUE (username);
