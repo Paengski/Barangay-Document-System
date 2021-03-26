@@ -289,6 +289,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <materialDesign:Badged HorizontalAlignment="Center"
+                                           Badge="{materialDesign:PackIcon Kind=Add}"
+                                           BadgeColorZoneMode="Dark">
+                                <Button Content="Add User Admin" Click="AddAdmin_Button"/>
+                            </materialDesign:Badged>
+                        </StackPanel>
                     </Grid>
                     <DataGrid x:Name="v_config_data_grid"
                               Grid.Row="1"

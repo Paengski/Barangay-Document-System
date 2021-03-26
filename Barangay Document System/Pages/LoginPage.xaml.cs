@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MaterialDesignThemes.Wpf;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Barangay_Document_System.Pages
@@ -44,6 +45,16 @@ namespace Barangay_Document_System.Pages
                Dashboard dashboard = new Dashboard();
                dashboard.Show();
                Close();
+            }
+            else
+            {
+               string queryuser = $"SELECT DISTINCT * FROM APP_USER WHERE USERNAME = '{userInput}'";
+               var d = DBOperation.ExecuteToDataTable(queryuser);
+               if (d != null)
+               {
+                  v_passwordbox.Password = "";
+                  v_hint_text.Text = $"HINT: {d.Rows[0]["hint"]}";
+               }
             }
          }
       }

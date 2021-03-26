@@ -319,5 +319,11 @@ namespace Barangay_Document_System.Pages
          v_barangay_config_grid.Visibility = Visibility.Visible;
          v_config_data_grid.ItemsSource = AdminAccount.AdminAccounts;
       }
+
+      private void AddAdmin_Button(object sender, RoutedEventArgs e)
+      {
+         AdminForm form = new AdminForm();
+         form.Show();
+      }
    }
 }

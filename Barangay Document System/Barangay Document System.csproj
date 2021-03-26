@@ -193,6 +193,9 @@
     </Compile>
     <Compile Include="CommonFunction\DbInfo.cs" />
     <Compile Include="CommonFunction\DBOperation.cs" />
+    <Compile Include="DBManager\AdminForm.xaml.cs">
+      <DependentUpon>AdminForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DBManager\Insert.xaml.cs">
       <DependentUpon>Insert.xaml</DependentUpon>
     </Compile>
@@ -235,6 +238,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Certificates\Residency.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DBManager\AdminForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

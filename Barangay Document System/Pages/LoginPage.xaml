@@ -65,6 +65,9 @@
                                  materialDesign:TextFieldAssist.UnderlineBrush="Green"
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" KeyDown="V_passwordbox_KeyDown" Margin="0,11,0,0" />
                 </Grid>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Center">
+                    <Run x:Name="v_hint_text"  Text="" Foreground="Red" FontWeight="Light"/>
+                </TextBlock>
                 <Button Grid.Row="3"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         ToolTip="Admin Login"
